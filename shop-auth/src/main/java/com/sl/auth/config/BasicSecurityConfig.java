@@ -1,10 +1,13 @@
 package com.sl.auth.config;
 
+import com.sl.auth.config.handler.MySuccessHandler;
 import com.sl.auth.service.MyUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -21,7 +24,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  **/
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private MySuccessHandler mySuccessHandler;
 
     /**
      * 用户登录处理逻辑
@@ -52,11 +59,12 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable()
+                .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
+//                .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic()
-                .and().csrf().disable();
+                .httpBasic();
     }
 }

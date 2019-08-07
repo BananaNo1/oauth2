@@ -6,10 +6,14 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
+/**
+ * @Description TODO
+ * @Author leis
+ * @Date 2019/8/7 10:13
+ **/
 @SpringBootApplication
 @EnableEurekaClient
 @EnableZuulProxy
-@EnableOAuth2Sso
 public class ShopZullApplication {
 
     public static void main(String[] args) {

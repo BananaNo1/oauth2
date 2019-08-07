@@ -1,5 +1,6 @@
 package com.sl.auth.controller;
 
+import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +15,15 @@ import java.security.Principal;
  * @Version 1.0
  **/
 @RestController
-@RequestMapping("/auth")
 public class ResourceController {
 
     @GetMapping("/member")
-    public Principal user(Principal member){
+    public Principal user(Principal member) {
         return member;
     }
+
+    public void login() {
+
+    }
+
 }

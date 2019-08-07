@@ -1,17 +1,33 @@
 server:
   port: 8083
+  servlet:
+    context-path: /auth
 
 spring:
   application:
     name: shop-auth-8083
 
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource #HikariCp
+    url: jdbc:mysql://localhost:3306/cloudshop?useUnicode=true&characterEncoding=UTF-8&useSSL=true&nullCatalogMeansCurrent=true&serverTimezone=GMT%2B8
+    username: root #数据库用户名
+    password: 123456 #数据库密码
+    driver-class-name: com.mysql.cj.jdbc.Driver #mysql驱动
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 600000
+      connection-test-query: SELECT 1
+
   redis:
     host: 120.78.3.7
     port: 6379
     password: leis666
-      #    sentinel:
-      #      master: mymaster
-      #      nodes: 120.78.3.7:26379
+    #    sentinel:
+    #      master: mymaster
+    #      nodes: 120.78.3.7:26379
     database: 3
 
 eureka:
@@ -21,3 +37,7 @@ eureka:
   instance:
     instance-id: shop-auth-8083
     prefer-ip-address: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.sl.auth.entity

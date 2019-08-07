@@ -14,7 +14,11 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+
+import java.util.Arrays;
 
 /**
  * @ClassName AuthenticationConfig
@@ -46,13 +50,18 @@ public class AuthenticationConfig extends AuthorizationServerConfigurerAdapter {
         return tokenStore;
     }
 
+    @Bean
+    public TokenEnhancer tokenEnhancer() {
+        return new RedisTokenEnhancer();
+    }
+
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 // 开启/oauth/token_key验证端口无权限访问
                 .tokenKeyAccess("permitAll()")
                 // 开启/oauth/check_token验证端口认证权限访问
-                .checkTokenAccess("isAuthenticated()")
+                .checkTokenAccess("permitAll()")
                 // client_id client_secret
                 .allowFormAuthenticationForClients();
     }
@@ -75,6 +84,7 @@ public class AuthenticationConfig extends AuthorizationServerConfigurerAdapter {
         tokenServices.setTokenStore(tokenStore());
         tokenServices.setSupportRefreshToken(true);
         tokenServices.setReuseRefreshToken(true);
+        tokenServices.setTokenEnhancer(tokenEnhancer());
         // token有效期自定义设置，默认12小时
         tokenServices.setAccessTokenValiditySeconds(60 * 60 * 12);
         //默认30天，这里修改
@@ -84,7 +94,9 @@ public class AuthenticationConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.tokenStore(tokenStore())
+
+        endpoints.tokenEnhancer(tokenEnhancer())
+                .tokenStore(tokenStore())
                 .userDetailsService(myUserDetailsService)
                 .authenticationManager(authenticationManager)
                 .tokenServices(defaultTokenServices());
