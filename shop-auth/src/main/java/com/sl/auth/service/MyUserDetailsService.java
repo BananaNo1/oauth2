@@ -1,8 +1,6 @@
 package com.sl.auth.service;
 
 import com.google.common.collect.Lists;
-import com.sl.auth.common.UserContext;
-import com.sl.auth.entity.MyUser;
 import com.sl.auth.entity.TbPermission;
 import com.sl.auth.entity.TbUser;
 import com.sl.auth.mapper.TbPermissionMapper;

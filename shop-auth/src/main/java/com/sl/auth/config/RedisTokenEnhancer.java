@@ -1,7 +1,6 @@
 package com.sl.auth.config;
 
-import com.sl.auth.common.UserContext;
-import com.sl.auth.entity.MyUser;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.userdetails.User;
@@ -10,7 +9,6 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2RefreshToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 

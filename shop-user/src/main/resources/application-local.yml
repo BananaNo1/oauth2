@@ -1,6 +1,3 @@
-server:
-  port: 8090
-
 spring:
   application:
     name: shop-user-8090
@@ -9,6 +6,18 @@ spring:
     port: 6379
     password: leis666
     database: 3
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8720
+      datasource:
+        ds:
+          nacos:
+            server-addr: localhost:8848
+            dataId: ${spring.application.name}-flow-rules
+            groupId: SENTINEL_GROUP
+            ruleType: flow
 
 eureka:
   client:
@@ -18,16 +27,20 @@ eureka:
     instance-id: shop-user-8090
     prefer-ip-address: true
 
-#security:
-#  oauth2:
-#    resource:
-##      user-info-uri: http://localhost:8083/auth/member
-#      token-info-uri: http://localhost:8083/oauth/check_token
-#      prefer-token-info: true
-#    client:
-#      access-token-uri: http://localhost:8083/oauth/token
-#      client-id: app
-#      client-secret: 123456
+management:
+  endpoint:
+    health:
+      show-details: when_authorized
+
+feign:
+  sentinel:
+    enabled: true
+
+param: true
+#
+#feign:
+#  hystrix:
+#    enabled: true
 
 #security:
 #  oauth2:

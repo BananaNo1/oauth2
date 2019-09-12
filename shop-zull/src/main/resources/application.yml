@@ -27,15 +27,15 @@ zuul:
 
 
 
-#security:
-#  oauth2:
-#    client:
-#      client-id: app
-#      client-secret: 123456
-#      access-token-uri: http://localhost:8083/oauth/token
-#      grant-type: password
-#
-#    #     user-authorization-uri: http://localhost:8083/oauth/authorize
-#    resource:
-#      token-info-uri: http://localhost:8083/oauth/check_token
-#      prefer-token-info: true
+security:
+  oauth2:
+    client:
+      client-id: app
+      client-secret: 123456
+      access-token-uri: http://auth/oauth/token
+      grant-type: password
+      user-authorization-uri: http://auth/oauth/authorize
+    resource:
+      token-info-uri: http://auth/oauth/check_token
+      prefer-token-info: true
+      user-info-uri: http://auth/member

@@ -13,12 +13,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @Date 2019/8/2 17:07
  * @Version 1.0
  **/
-@Configuration
-@EnableWebSecurity
-public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-    }
-}
+//@Configuration
+//@EnableWebSecurity
+//@Order
+//public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable();
+//    }
+//}

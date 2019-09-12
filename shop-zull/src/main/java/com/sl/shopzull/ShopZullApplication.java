@@ -14,6 +14,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableZuulProxy
+@EnableOAuth2Sso
 public class ShopZullApplication {
 
     public static void main(String[] args) {

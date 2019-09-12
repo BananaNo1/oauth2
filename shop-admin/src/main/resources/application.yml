@@ -1,0 +1,23 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+  instance:
+    instance-id: admin
+    prefer-ip-address: true
+server:
+  port: 8888
+  servlet:
+    context-path: /admin
+spring:
+  application:
+    name: admin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
