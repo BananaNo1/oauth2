@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: user-service
+        uri: lb://shop-user-8090
+        predicates:
+        - Path= /user/**
+#        filters:
+#        - StripPrefix= 1
+#  过滤第一个前缀
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+  instance:
+    instance-id: gateway-8100
+    prefer-ip-address: true

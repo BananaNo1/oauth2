@@ -30,9 +30,6 @@ public class TestController {
     @Autowired
     private ProductService productService;
 
-    @Value("${param}")
-    private String param;
-
     @Value("${UserLocalCache}")
     private String UserLocalCache;
 
@@ -58,6 +55,6 @@ public class TestController {
 
     @GetMapping("/get")
     public String getParam() {
-        return param + "***" + UserLocalCache;
+        return "***" + UserLocalCache;
     }
 }

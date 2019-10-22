@@ -3,14 +3,14 @@ server:
 
 spring:
   application:
-    name: gateway-8080
+    name: zull-8080
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8081/eureka
   instance:
-    instance-id: gateway-8080
+    instance-id: zull-8080
     prefer-ip-address: true
 
 zuul:

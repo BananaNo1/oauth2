@@ -1,0 +1,7 @@
+
+zsquid:UselessImportCheck"ORemove this unused import 'com.alibaba.nacos.api.config.annotation.NacosValue'.(İ«Ü¾8²È˜™Ò-
+Isquid:S11723"&Remove these unused method parameters.(˜Ï˜‰ûÿÿÿÿ8ÿû¨à×-
+asquid:UselessImportCheck"6Remove this unused import 'javax.annotation.Resource'.(î¾Ì—8û´ŒÏ-
+}squid:S00116""YRename this field "UserLocalCache" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÑåÔÿÿÿÿÿ8±€ş™Ò-
+Wsquid:S34005"9Remove this method and declare a constant for this value.(•‚ñÀ8ÿû¨à×-
+Hsquid:S1135"2Complete the task associated to this TODO comment.(£°§\

@@ -9,6 +9,10 @@
         <option value="$PROJECT_DIR$/shol-discovery/pom.xml" />
         <option value="$PROJECT_DIR$/shop-auth/pom.xml" />
         <option value="$PROJECT_DIR$/shop-user/pom.xml" />
+        <option value="$PROJECT_DIR$/shop-products/pom.xml" />
+        <option value="$PROJECT_DIR$/shop-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/shop-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/hystrix-dashboard/pom.xml" />
       </list>
     </option>
   </component>

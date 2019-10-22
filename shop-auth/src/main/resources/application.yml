@@ -21,7 +21,7 @@ spring:
       connection-test-query: SELECT 1
 
   redis:
-    host: 127.0.0.1
+    host: 120.78.3.7
     port: 6379
     password: leis666
     database: 3

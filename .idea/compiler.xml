@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hystrix-dashboard" />
+        <module name="shop-admin" />
         <module name="shop-auth" />
         <module name="shop-discovery" />
+        <module name="shop-gateway" />
+        <module name="shop-products" />
         <module name="shop-user" />
         <module name="shop-zull" />
       </profile>

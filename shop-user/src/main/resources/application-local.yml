@@ -2,7 +2,7 @@ spring:
   application:
     name: shop-user-8090
   redis:
-    host: 127.0.0.1
+    host: 120.78.3.7
     port: 6379
     password: leis666
     database: 3
@@ -11,13 +11,17 @@ spring:
       transport:
         dashboard: localhost:8080
         port: 8720
-      datasource:
-        ds:
-          nacos:
-            server-addr: localhost:8848
-            dataId: ${spring.application.name}-flow-rules
-            groupId: SENTINEL_GROUP
-            ruleType: flow
+#      datasource:
+#        ds:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: ${spring.application.name}-flow-rules
+#            groupId: SENTINEL_GROUP
+#            ruleType: flow
+
+#feign:
+#  sentinel:
+#    enabled: true
 
 eureka:
   client:
@@ -30,17 +34,18 @@ eureka:
 management:
   endpoint:
     health:
-      show-details: when_authorized
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 
 feign:
-  sentinel:
+  hystrix:
     enabled: true
 
-param: true
-#
-#feign:
-#  hystrix:
-#    enabled: true
+UserLocalCache: local
 
 #security:
 #  oauth2:

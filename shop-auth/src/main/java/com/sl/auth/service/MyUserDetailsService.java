@@ -46,25 +46,25 @@ public class MyUserDetailsService implements UserDetailsService {
 //        myUser.setUsername(username);
 //        userContext.setUser(myUser);
 
-        TbUser tbUser = tbUserService.getByUsername(username);
-        List<GrantedAuthority> grantedAuthorities = Lists.newArrayList();
-        if (tbUser != null) {
-            List<TbPermission> tbPermissions = tbPermissionMapper.selectByUserId(tbUser.getId());
-
-            tbPermissions.stream().forEach(tbPermission -> {
-                if (tbPermission != null && tbPermission.getEnname() != null) {
-                    GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(tbPermission.getEnname());
-                    grantedAuthorities.add(grantedAuthority);
-                }
-            });
-        }
-
-        return new User(tbUser.getUsername(), tbUser.getPassword(), grantedAuthorities);
-//        if (username != null) {
-//            return new User(username, this.passwordEncoder.encode("123456"),
-//                    AuthorityUtils.createAuthorityList("admin"));
-//        } else {
-//            throw new UsernameNotFoundException("用户[" + username + "]不存在");
+//        TbUser tbUser = tbUserService.getByUsername(username);
+//        List<GrantedAuthority> grantedAuthorities = Lists.newArrayList();
+//        if (tbUser != null) {
+//            List<TbPermission> tbPermissions = tbPermissionMapper.selectByUserId(tbUser.getId());
+//
+//            tbPermissions.stream().forEach(tbPermission -> {
+//                if (tbPermission != null && tbPermission.getEnname() != null) {
+//                    GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(tbPermission.getEnname());
+//                    grantedAuthorities.add(grantedAuthority);
+//                }
+//            });
 //        }
+//
+//        return new User(tbUser.getUsername(), tbUser.getPassword(), grantedAuthorities);
+        if (username != null) {
+            return new User(username, this.passwordEncoder.encode("123456"),
+                    AuthorityUtils.createAuthorityList("admin"));
+        } else {
+            throw new UsernameNotFoundException("用户[" + username + "]不存在");
+        }
     }
 }

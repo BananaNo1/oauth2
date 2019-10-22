@@ -5,8 +5,6 @@ spring:
   application:
     name: eureka-server-8081
 
-
-
 eureka:
   instance:
     hostname: eureka-server-8081

@@ -23,12 +23,13 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/actuator/**").permitAll()
-//                .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .and().csrf().disable();
+//        http.authorizeRequests()
+//                .antMatchers("/actuator/**").permitAll()
+////                .antMatchers(HttpMethod.OPTIONS).permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .and().csrf().disable();
+//        http.authorizeRequests().anyRequest().permitAll();
     }
 }

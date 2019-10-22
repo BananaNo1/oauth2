@@ -2,8 +2,12 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hystrix-dashboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-auth" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-discovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-products" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-zull" charset="UTF-8" />
   </component>

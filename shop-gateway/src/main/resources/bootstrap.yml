@@ -1,0 +1,8 @@
+server:
+  port: 8100
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: gateway-8090
